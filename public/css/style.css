@@ -1,0 +1,2961 @@
+
+/* ===== TAMPILAN OPEN PO ===== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f5f8fc;
+    color: #26374a;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin: 40px auto;
+}
+
+
+/* ===== FORM ADMIN ===== */
+
+.form-section,
+.product-section {
+    padding: 24px;
+    margin-bottom: 28px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(38, 55, 74, 0.08);
+}
+
+.form-section h2,
+.product-section h2 {
+    margin-top: 0;
+    color: #604737;
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-section .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 7px;
+    width: 100%;
+    margin: 0;
+}
+
+.form-section .form-group label {
+    display: block;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-section .form-group input,
+.form-section .form-group textarea {
+    display: block;
+    width: 100%;
+    min-height: 42px;
+    padding: 11px 12px;
+    border: 1px solid #d8e1ec;
+    border-radius: 8px;
+    background: #fcfdff;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.form-section .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-section .form-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+}
+
+.form-section .form-row .form-group {
+    flex: 1;
+    min-width: 0;
+}
+
+.form-section .btn-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px;
+    background-color: #604737;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid #d5bda9;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.btn-batal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px;
+    background-color: #e8d8c9;
+    color: #72553f;
+    text-decoration: none;
+    border: 1px solid #d5bda9;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.btn-batal:hover {
+    background-color: #d8c2ae;
+    color: #5c4332;
+}
+
+.form-section .btn-submit:hover {
+    background: #4a3426;
+}
+
+/* ===== ALERT ===== */
+
+.alert-success {
+    padding: 12px 16px;
+    margin-bottom: 18px;
+    background: #eaf8ee;
+    border: 1px solid #c8ead2;
+    border-radius: 9px;
+    color: #27633a;
+}
+
+.alert-error {
+    padding: 12px 16px;
+    margin-bottom: 18px;
+    background: #fff0f0;
+    border: 1px solid #f3cccc;
+    border-radius: 9px;
+    color: #963d3d;
+}
+
+/* ===== TABEL ===== */
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+}
+
+th {
+    background: #eaf2fb;
+    color: #315a80;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+th,
+td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #edf1f6;
+}
+
+tbody tr:hover {
+    background: #f8fbff;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ===== DAFTAR PRODUK ===== */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 22px;
+    padding: 16px 0;
+}
+
+.product-card {
+    min-width: 0;
+    padding: 10px;
+    background: #fff1e3;
+    border-radius: 12px;
+    box-shadow: 0 2px 3px rgba(65, 43, 30, 0.2);
+    text-align: center;
+}
+
+.product-card-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #918d8c;
+}
+
+.product-card-image .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.product-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #918d8c;
+}
+
+.product-card h3 {
+    margin: 8px 0 4px;
+    font-family: Georgia, serif;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.product-price {
+    margin: 4px 0 10px;
+    font-size: 12px;
+}
+
+.product-card-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.product-card-actions form {
+    margin: 0;
+}
+
+.product-card-actions a,
+.product-card-actions button {
+    padding: 5px 8px;
+    border: none;
+    border-radius: 5px;
+    font-size: 11px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-edit {
+    background: #604737;
+    color: #fff5ed;
+    border-radius: 7px;
+    transition: opacity 0.2s;
+}
+
+.btn-delete {
+    background: #f17b78;
+    color: #ffffff;
+    border-radius: 7px;
+    transition: opacity 0.2s;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+    opacity: 0.85;
+}
+
+.empty-message {
+    padding: 20px;
+    color: #604737;
+    background: #f8fbff;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1000px) {
+    .product-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .container {
+        margin: 20px auto;
+    }
+
+    .page-header {
+        padding: 22px;
+    }
+
+    .page-header h1 {
+        font-size: 25px;
+    }
+
+    .form-section,
+    .product-section {
+        padding: 18px;
+    }
+
+    .form-section .form-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .form-section .form-row .form-group {
+        width: 100%;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+}
+
+
+/* ===== HALAMAN DAFTAR ORDER ===== */
+
+.order-section {
+    padding: 24px;
+    background: #fff9e9;
+    border-radius: 14px;
+    box-shadow: 0 3px 8px rgba(65, 43, 30, 0.12);
+}
+
+.order-section h2 {
+    color: #604737;
+    font-family: Georgia, serif;
+    margin-top: 0;
+}
+
+.order-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fffdf7;
+}
+
+.order-table th {
+    background: #604737;
+    color: #fff5e8;
+    white-space: nowrap;
+}
+
+.order-table th,
+.order-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eadbca;
+    text-align: left;
+    font-size: 13px;
+}
+
+.order-table tbody tr:hover {
+    background: #f8eadb;
+}
+
+.order-product {
+    margin-bottom: 5px;
+    color: #604737;
+}
+
+.order-product span {
+    color: #987b68;
+    font-size: 12px;
+}
+
+.order-status {
+    display: inline-block;
+    padding: 5px 9px;
+    background: #f2ddd3;
+    color: #604737;
+    border-radius: 20px;
+    font-size: 11px;
+    white-space: nowrap;
+    text-transform: capitalize;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+
+/* ===== TOMBOL TERIMA ORDERAN ===== */
+
+.alert-success {
+    padding: 12px 16px;
+    margin-bottom: 18px;
+    background: #e3efdc;
+    color: #42613b;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.payment-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #d8bcae;
+}
+
+.payment-actions form {
+    margin: 0;
+}
+
+.payment-actions button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn-accept {
+    background: #604737;
+    color: #fff5ed;
+}
+
+.btn-reject {
+    background: #b76b68;
+    color: white;
+}
+
+.btn-accept:hover,
+.btn-reject:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 500px) {
+    .payment-actions form {
+        width: 100%;
+    }
+
+    .payment-actions button {
+        width: 100%;
+    }
+}
+
+
+/* ===== HALAMAN DAFTAR REVIEW ===== */
+
+.review-section {
+    padding: 24px;
+    background: #fff9e9;
+    border-radius: 14px;
+    box-shadow: 0 3px 8px rgba(65, 43, 30, 0.12);
+}
+
+.review-section h2 {
+    color: #604737;
+    font-family: Georgia, serif;
+    margin-top: 0;
+}
+
+.review-card {
+    padding: 20px;
+    margin-bottom: 16px;
+    background: #f2ddd3;
+    border: 1px solid #e5c9b9;
+    border-radius: 12px;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.review-header h3 {
+    margin: 0 0 5px;
+    color: #604737;
+    font-family: Georgia, serif;
+}
+
+.review-header p {
+    margin: 0;
+    font-size: 13px;
+}
+
+.review-rating {
+    color: #9b6c32;
+    font-weight: bold;
+}
+
+.review-comment {
+    margin-top: 15px;
+    color: #604737;
+    line-height: 1.7;
+}
+
+.review-date {
+    margin-bottom: 0;
+    color: #92796a;
+    font-size: 12px;
+}
+
+@media (max-width: 650px) {
+    .review-section {
+        padding: 16px;
+    }
+
+    .review-card {
+        padding: 14px;
+    }
+}
+
+
+/* ===== ACCOUNT ADMIN ===== */
+
+.account-section {
+    max-width: 600px;
+    margin: auto;
+    padding: 25px;
+    background: #fff9e9;
+    border-radius: 14px;
+    box-shadow: 0 3px 8px rgba(65, 43, 30, 0.12);
+}
+
+.account-section h2 {
+    margin-top: 0;
+    color: #604737;
+    font-family: Georgia, serif;
+}
+
+.account-form-group {
+    margin-bottom: 18px;
+}
+
+.account-form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #604737;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.account-form-group input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #d8bcae;
+    border-radius: 7px;
+    background: #fffdf7;
+    color: #604737;
+    outline: none;
+}
+
+.account-form-group input:focus {
+    border-color: #8b6650;
+}
+
+.account-form-group small {
+    display: block;
+    margin-top: 5px;
+    color: #b76b68;
+}
+
+.account-save-btn {
+    padding: 11px 20px;
+    background: #604737;
+    color: #fff5ed;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.account-save-btn:hover {
+    opacity: 0.85;
+}
+
+@media (max-width: 600px) {
+    .account-section {
+        padding: 17px;
+    }
+
+    .account-save-btn {
+        width: 100%;
+    }
+}
+
+/* =================================
+   LOGIN ADMIN - SELUNE
+================================= */
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+
+    background-color: #f5eddf;
+    background-image: radial-gradient(
+        #b9a185 1px,
+        transparent 1px
+    );
+    background-size: 35px 35px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 45px 38px;
+
+    background-color: #624735;
+    color: #fff5e8;
+
+    border: 2px solid #8d7057;
+    border-radius: 8px;
+
+    box-shadow: 8px 8px 0 #d8c5aa;
+
+    text-align: center;
+}
+
+.login-card h1 {
+    margin: 0 0 0px;
+    font-family: Georgia, serif;
+    font-size: 40px;
+    letter-spacing: 5px;
+    color: #f7e9d5;
+}
+
+.login-card p {
+    margin-top: 0px; /* jarak dari SELUNÉ */
+    margin-bottom: 30px;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    color: #e8cdbb;
+}
+
+.login-card form {
+    text-align: left;
+}
+
+.login-card label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #f7e9d5;
+}
+
+.login-card input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 14px;
+    margin-bottom: 22px;
+
+    border: 1px solid #c5a88c;
+    border-radius: 4px;
+    outline: none;
+
+    background-color: #fff8ee;
+    color: #624735;
+    font-size: 14px;
+}
+
+.login-card input:focus {
+    border-color: #e7b5b5;
+    box-shadow: 0 0 0 3px rgba(231, 181, 181, 0.2);
+}
+
+.login-card input::placeholder {
+    color: #b5a18e;
+}
+
+
+/* =================================
+   PASSWORD INPUT & EYE ICON
+================================= */
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.password-wrapper input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 48px 13px 14px;
+    margin-bottom: 0;
+}
+
+/* TOMBOL ICON MATA */
+.login-card button.toggle-password {
+    position: absolute !important;
+    top: 50% !important;
+    right: 8px !important;
+
+    width: 38px !important;
+    height: 38px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    background: transparent !important;
+    color: #624735 !important;
+
+    border: none !important;
+    border-radius: 50% !important;
+
+    transform: translateY(-50%) !important;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.login-card button.toggle-password:hover {
+    background: #f0d0c8 !important;
+    color: #513b30 !important;
+    transform: translateY(-50%) !important;
+}
+
+/* TOMBOL LOGIN */
+.login-card button.login-button {
+    width: 100%;
+    padding: 13px;
+}
+
+/* TOMBOL LOGIN */
+
+.login-card .login-button {
+    width: 100%;
+    padding: 13px;
+
+    border: none;
+    border-radius: 4px;
+
+    background-color: #dcaeaa;
+    color: #513b30;
+
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-card .login-button:hover {
+    background-color: #f0d0c8;
+    transform: translateY(-2px);
+}
+
+/* PESAN ERROR */
+
+.login-error {
+    padding: 10px;
+    margin-bottom: 20px;
+
+    background-color: #f8d7da;
+    color: #842029;
+
+    border-radius: 4px;
+    font-size: 13px;
+    text-align: center;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 35px 25px;
+    }
+
+    .login-card h1 {
+        font-size: 30px;
+    }
+}
+
+
+.account-logout-btn {
+    width: 100%;
+    padding: 13px;
+    margin-top: 15px;
+    background-color: #a65f55;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.account-logout-btn:hover {
+    background-color: #87483f;
+}
+
+
+/* ===== KATALOG USER SELUNE ===== */
+
+.catalog-section {
+    padding: 35px 20px;
+}
+
+.catalog-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.catalog-heading h2 {
+    color: #624735;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.catalog-heading p {
+    color: #8b7565;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 20px;
+}
+
+.catalog-card {
+    background: #fffaf0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(80, 55, 35, 0.10);
+    transition: 0.3s ease;
+}
+
+.catalog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(80, 55, 35, 0.15);
+}
+
+.catalog-image {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+}
+
+.catalog-no-image {
+    height: 230px;
+    background: #f1e5d5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #927d6c;
+}
+
+.catalog-info {
+    padding: 20px;
+}
+
+.catalog-info h3 {
+    color: #624735;
+    font-size: 19px;
+    margin: 0 0 10px;
+}
+
+.catalog-description {
+    color: #897667;
+    font-size: 14px;
+    min-height: 40px;
+}
+
+.catalog-price {
+    color: #a65f55;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.catalog-stock {
+    color: #766454;
+    font-size: 13px;
+}
+
+.catalog-status {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #e5efdf;
+    color: #58764e;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.catalog-empty {
+    text-align: center;
+    background: #fffaf0;
+    padding: 40px 20px;
+    border-radius: 15px;
+    color: #806b59;
+}
+
+@media (max-width: 600px) {
+    .catalog-section {
+        padding: 20px 10px;
+    }
+
+    .catalog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .catalog-image,
+    .catalog-no-image {
+        height: 160px;
+    }
+
+    .catalog-info {
+        padding: 12px;
+    }
+}
+
+
+/* ===== TOMBOL DETAIL PRODUK ===== */
+
+.catalog-detail-btn {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 15px;
+    padding: 11px;
+    background-color: #a65f55;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.catalog-detail-btn:hover {
+    background-color: #87483f;
+}
+
+
+/* ===== TOMBOL KEMBALI KE KATALOG ===== */
+
+.detail-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+    padding: 11px 20px;
+    background-color: #f0e2d5;
+    color: #624735;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.detail-back:hover {
+    background-color: #a65f55;
+    color: white;
+    transform: translateX(-4px);
+}
+
+
+/* ===== TOMBOL TAMBAH KE KERANJANG ===== */
+
+.detail-cart-form {
+    margin-top: 25px;
+}
+
+.detail-cart-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #a65f55;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.detail-cart-btn:hover:not(:disabled) {
+    background-color: #87483f;
+    transform: translateY(-2px);
+}
+
+.detail-cart-btn:disabled {
+    background-color: #b9aaa0;
+    cursor: not-allowed;
+}
+
+.alert-success {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 15px 20px;
+    background: #e5efdf;
+    color: #58764e;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ===== HALAMAN KERANJANG ===== */
+
+.cart-header {
+    text-align: center;
+    padding: 30px 15px;
+    background: #fffaf0;
+    color: #624735;
+}
+
+.cart-header h1 {
+    margin: 0;
+    letter-spacing: 5px;
+}
+
+.cart-header p {
+    margin-bottom: 0;
+    color: #8b7565;
+}
+
+.cart-container {
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+
+.cart-list {
+    display: grid;
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px;
+    background: #fffaf0;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(80,55,35,.08);
+}
+
+.cart-image,
+.cart-no-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.cart-no-image {
+    background: #f1e5d5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #927d6c;
+}
+
+.cart-item-info h3 {
+    color: #624735;
+    margin: 0 0 8px;
+}
+
+.cart-item-info p {
+    color: #a65f55;
+    font-weight: bold;
+}
+
+.cart-item-info span {
+    display: block;
+    color: #897667;
+    margin-bottom: 8px;
+}
+
+.cart-item-info strong {
+    color: #624735;
+}
+
+.cart-total {
+    margin-top: 25px;
+    padding: 22px;
+    background: #f0e2d5;
+    border-radius: 12px;
+    text-align: right;
+}
+
+.cart-total h3 {
+    color: #a65f55;
+    margin-bottom: 0;
+}
+
+.cart-empty {
+    text-align: center;
+    padding: 50px 20px;
+    background: #fffaf0;
+    border-radius: 15px;
+    margin-top: 25px;
+    color: #806b59;
+}
+
+@media (max-width: 600px) {
+    .cart-container {
+        padding: 15px;
+    }
+
+    .cart-item {
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .cart-image,
+    .cart-no-image {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+/* ===== HEADER KATALOG ===== */
+
+.catalog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 50px;
+    background: #fffaf0;
+}
+
+.catalog-brand h1 {
+    margin: 0;
+    color: #624735;
+    letter-spacing: 5px;
+}
+
+.catalog-brand p {
+    margin: 5px 0 0;
+    color: #8b7565;
+    font-size: 13px;
+}
+
+.cart-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 18px;
+    background: #a65f55;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: .3s ease;
+}
+
+.cart-icon:hover {
+    background: #87483f;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 600px) {
+    .catalog-header {
+        padding: 20px 15px;
+    }
+
+    .cart-icon {
+        padding: 10px 13px;
+        font-size: 12px;
+    }
+}
+
+.checkout-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 13px 25px;
+    background: #a65f55;
+    color: white;
+    text-decoration: none;
+    border-radius: 9px;
+    font-weight: 600;
+    transition: .3s ease;
+}
+
+.checkout-btn:hover {
+    background: #87483f;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   REGISTER PEMBELI SELUNE
+========================= */
+
+.register-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+    background: #f5eee5;
+    box-sizing: border-box;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 430px;
+    padding: 40px;
+    background: #fffaf3;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(98, 71, 53, 0.12);
+    box-sizing: border-box;
+}
+
+.register-brand {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.register-brand h1 {
+    color: #624735;
+    letter-spacing: 6px;
+    margin: 0;
+    font-size: 30px;
+}
+
+.register-brand p {
+    color: #a18772;
+    margin: 8px 0 0;
+    font-size: 13px;
+}
+
+.register-card h2 {
+    color: #624735;
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.register-subtitle {
+    color: #927d6b;
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.register-field {
+    margin-bottom: 18px;
+}
+
+.register-field label {
+    display: block;
+    color: #624735;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.register-field input {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #dfcdbb;
+    border-radius: 10px;
+    background: white;
+    outline: none;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.register-field input:focus {
+    border-color: #a65f55;
+    box-shadow: 0 0 0 3px rgba(166, 95, 85, 0.12);
+}
+
+.register-button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #a65f55;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.register-button:hover {
+    background: #87483f;
+    transform: translateY(-2px);
+}
+
+.register-login {
+    text-align: center;
+    color: #897667;
+    margin-top: 22px;
+    font-size: 14px;
+}
+
+.register-login a {
+    color: #a65f55;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.register-login a:hover {
+    text-decoration: underline;
+}
+
+.register-back {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #8b7565;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.register-back:hover {
+    color: #624735;
+}
+
+.register-error {
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    background: #f8e3df;
+    color: #984d43;
+    border-radius: 10px;
+    font-size: 13px;
+}
+
+.register-error p {
+    margin: 5px 0;
+}
+
+@media (max-width: 480px) {
+    .register-card {
+        padding: 28px 22px;
+    }
+
+    .register-brand h1 {
+        font-size: 26px;
+    }
+}
+
+
+/* =========================
+   LOGIN PEMBELI SELUNE
+========================= */
+
+.user-login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+    background: #f5eee5;
+    box-sizing: border-box;
+}
+
+.user-login-card {
+    width: 100%;
+    max-width: 430px;
+    padding: 40px;
+    background: #fffaf3;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(98, 71, 53, 0.12);
+    box-sizing: border-box;
+}
+
+.user-login-brand {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.user-login-brand h1 {
+    color: #624735;
+    letter-spacing: 6px;
+    margin: 0;
+    font-size: 30px;
+}
+
+.user-login-brand p {
+    color: #a18772;
+    margin: 8px 0 0;
+    font-size: 13px;
+}
+
+.user-login-card h2 {
+    color: #624735;
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.user-login-subtitle {
+    color: #927d6b;
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.user-login-field {
+    margin-bottom: 20px;
+}
+
+.user-login-field label {
+    display: block;
+    color: #624735;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.user-login-field input {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #dfcdbb;
+    border-radius: 10px;
+    background: white;
+    outline: none;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.user-login-field input:focus {
+    border-color: #a65f55;
+    box-shadow: 0 0 0 3px rgba(166, 95, 85, 0.12);
+}
+
+.user-login-button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #a65f55;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.user-login-button:hover {
+    background: #87483f;
+    transform: translateY(-2px);
+}
+
+.user-login-register {
+    text-align: center;
+    color: #897667;
+    margin-top: 22px;
+    font-size: 14px;
+}
+
+.user-login-register a {
+    color: #a65f55;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.user-login-register a:hover {
+    text-decoration: underline;
+}
+
+.user-login-back {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #8b7565;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.user-login-back:hover {
+    color: #624735;
+}
+
+.user-login-error {
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    background: #f8e3df;
+    color: #984d43;
+    border-radius: 10px;
+    font-size: 13px;
+}
+
+.user-login-error p {
+    margin: 5px 0;
+}
+
+@media (max-width: 480px) {
+    .user-login-card {
+        padding: 28px 22px;
+    }
+
+    .user-login-brand h1 {
+        font-size: 26px;
+    }
+}
+
+
+/* ICON LIHAT PASSWORD */
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    padding-right: 45px !important;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+    font-size: 17px;
+    padding: 5px;
+
+    color: #8b7565;
+}
+
+.toggle-password:hover {
+    opacity: 0.7;
+}
+
+
+/* =========================
+   HALAMAN AKUN PEMBELI
+========================= */
+
+.user-account-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+    background: #f5eee5;
+    box-sizing: border-box;
+}
+
+.user-account-card {
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    background: #fffaf3;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(98, 71, 53, 0.12);
+    box-sizing: border-box;
+}
+
+.user-account-brand {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.user-account-brand h1 {
+    color: #624735;
+    letter-spacing: 6px;
+    margin: 0;
+    font-size: 30px;
+}
+
+.user-account-brand p {
+    color: #a18772;
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.user-account-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.user-account-avatar {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #a65f55;
+    color: white;
+    border-radius: 50%;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.user-account-heading h2 {
+    color: #624735;
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.user-account-heading p {
+    color: #927d6b;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.user-account-info {
+    background: #f7efe6;
+    border-radius: 14px;
+    padding: 10px 18px;
+    margin-bottom: 25px;
+}
+
+.user-account-info-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #e4d5c5;
+}
+
+.user-account-info-item:last-child {
+    border-bottom: none;
+}
+
+.user-account-info-item span {
+    display: block;
+    color: #927d6b;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.user-account-info-item strong {
+    display: block;
+    color: #624735;
+    font-size: 15px;
+    word-break: break-word;
+}
+
+.user-account-status {
+    color: #a65f55 !important;
+}
+
+.user-account-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.user-account-menu-button {
+    display: block;
+    text-align: center;
+    padding: 13px;
+    background: #a65f55;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.user-account-menu-button:hover {
+    background: #87483f;
+    transform: translateY(-2px);
+}
+
+.user-account-menu-button.secondary {
+    background: #e8d8c8;
+    color: #624735;
+}
+
+.user-account-menu-button.secondary:hover {
+    background: #dcc6b2;
+}
+
+.user-account-logout {
+    width: 100%;
+    padding: 13px;
+    background: transparent;
+    color: #a65f55;
+    border: 1px solid #a65f55;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.user-account-logout:hover {
+    background: #a65f55;
+    color: white;
+}
+
+@media (max-width: 480px) {
+    .user-account-card {
+        padding: 28px 22px;
+    }
+
+    .user-account-brand h1 {
+        font-size: 26px;
+    }
+}
+
+
+/* =========================
+   NAVIGASI KATALOG SELUNE
+========================= */
+
+.catalog-navigation {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.catalog-navigation form {
+    margin: 0;
+}
+
+.catalog-nav-button,
+.catalog-register-button {
+    display: inline-block;
+    padding: 10px 17px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.catalog-nav-button {
+    background: #e8d8c8;
+    color: #624735;
+}
+
+.catalog-nav-button:hover {
+    background: #dcc6b2;
+    transform: translateY(-2px);
+}
+
+.catalog-register-button {
+    background: #a65f55;
+    color: white;
+}
+
+.catalog-register-button:hover {
+    background: #87483f;
+    transform: translateY(-2px);
+}
+
+.catalog-logout-button {
+    padding: 10px 17px;
+    border: 1px solid #a65f55;
+    border-radius: 9px;
+    background: transparent;
+    color: #a65f55;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.catalog-logout-button:hover {
+    background: #a65f55;
+    color: white;
+}
+
+/* RESPONSIVE HEADER */
+
+@media (max-width: 600px) {
+
+    .catalog-header {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .catalog-navigation {
+        width: 100%;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .catalog-nav-button,
+    .catalog-register-button,
+    .catalog-logout-button {
+        padding: 9px 13px;
+        font-size: 13px;
+    }
+
+}
+
+
+/* ==============================
+   CHECKOUT SELUNE
+============================== */
+
+.checkout-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 25px;
+}
+
+.checkout-container h2 {
+    margin-top: 30px;
+    font-size: 30px;
+    color: #6f5143;
+}
+
+.checkout-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 25px;
+    align-items: start;
+    margin-top: 30px;
+}
+
+.checkout-form-card,
+.checkout-summary-card {
+    background: #fffaf5;
+    padding: 30px;
+    border-radius: 18px;
+    border: 1px solid #eaded2;
+    box-shadow: 0 5px 20px rgba(100, 70, 50, 0.05);
+}
+
+.checkout-form-card h3,
+.checkout-summary-card h3 {
+    color: #765747;
+    margin-bottom: 25px;
+    font-size: 21px;
+}
+
+.checkout-field {
+    margin-bottom: 20px;
+}
+
+.checkout-field label {
+    display: block;
+    margin-bottom: 8px;
+    color: #725647;
+    font-weight: 600;
+}
+
+.checkout-field input,
+.checkout-field textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #dfcfc0;
+    border-radius: 10px;
+    background: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    color: #594638;
+    outline: none;
+    box-sizing: border-box;
+    transition: 0.2s;
+}
+
+.checkout-field input:focus,
+.checkout-field textarea:focus {
+    border-color: #b58b70;
+    box-shadow: 0 0 0 3px rgba(181, 139, 112, 0.12);
+}
+
+.checkout-field textarea {
+    resize: vertical;
+}
+
+.checkout-submit-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #98745c;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 10px;
+}
+
+.checkout-submit-btn:hover {
+    background: #795941;
+    transform: translateY(-1px);
+}
+
+.checkout-product {
+    display: flex;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #eaded2;
+}
+
+.checkout-product img,
+.checkout-no-image {
+    width: 85px;
+    height: 95px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.checkout-no-image {
+    background: #eee3d8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #927966;
+    font-size: 12px;
+}
+
+.checkout-product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+}
+
+.checkout-product-info h4 {
+    margin: 0;
+    color: #634b3d;
+    font-size: 15px;
+}
+
+.checkout-product-info p {
+    margin: 0;
+    color: #927966;
+    font-size: 13px;
+}
+
+.checkout-product-info strong {
+    color: #795941;
+    font-size: 14px;
+}
+
+.checkout-total {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #d9c5b4;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.checkout-total span {
+    color: #927966;
+    font-size: 14px;
+}
+
+.checkout-total strong {
+    font-size: 23px;
+    color: #765747;
+}
+
+/* RESPONSIVE CHECKOUT */
+
+@media (max-width: 768px) {
+    .checkout-container {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .checkout-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .checkout-form-card,
+    .checkout-summary-card {
+        padding: 22px;
+    }
+
+    .checkout-container h2 {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .checkout-product img,
+    .checkout-no-image {
+        width: 70px;
+        height: 80px;
+    }
+
+    .checkout-product-info h4 {
+        font-size: 14px;
+    }
+
+    .checkout-total strong {
+        font-size: 20px;
+    }
+}
+
+/* CHECKOUT ALERT */
+
+.checkout-alert {
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.checkout-success {
+    background: #e8f3e8;
+    color: #456b48;
+    border: 1px solid #c9dfc9;
+}
+
+.checkout-error {
+    background: #f9e9e5;
+    color: #9b5145;
+    border: 1px solid #ebc9bf;
+}
+
+.checkout-alert ul {
+    margin: 10px 0 0;
+    padding-left: 20px;
+}
+
+/* TOMBOL KONFIRMASI PEMBAYARAN */
+.confirm-payment-btn {
+    padding: 9px 14px;
+    border: none;
+    border-radius: 20px;
+    background-color: #80634e;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.confirm-payment-btn:hover {
+    background-color: #604635;
+    transform: translateY(-1px);
+}
+
+/* STATUS PEMBAYARAN DIKONFIRMASI */
+.payment-confirmed {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 20px;
+    background-color: #e8d8c9;
+    color: #72553f;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* ==============================
+   NAVBAR ADMIN SELUNÉ
+============================== */
+
+.admin-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 16px 20px;
+    margin-bottom: 35px;
+
+    background-color: #f8f1e9;
+    border: 1px solid #eadbcf;
+    border-radius: 18px;
+}
+
+.admin-navbar > a {
+    text-decoration: none;
+    color: #765746;
+    padding: 10px 16px;
+    border-radius: 10px;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: 0.25s;
+}
+
+.admin-navbar > a:hover {
+    background-color: #eadbcf;
+    color: #5c4031;
+}
+
+.admin-navbar > a.active {
+    background-color: #a87862;
+    color: #fffaf5;
+    box-shadow: 0 3px 8px rgba(120, 80, 60, 0.15);
+}
+
+/* Form logout */
+.admin-navbar form {
+    margin: 0;
+}
+
+.admin-nav-logout {
+    border: none;
+    background-color: transparent;
+    color: #a15e52;
+
+    padding: 10px 16px;
+    border-radius: 10px;
+
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.admin-nav-logout:hover {
+    background-color: #f0dcd5;
+    color: #843f35;
+}
+
+/* Tampilan layar kecil */
+@media (max-width: 600px) {
+    .admin-navbar {
+        gap: 6px;
+        padding: 12px;
+    }
+
+    .admin-navbar > a,
+    .admin-nav-logout {
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+}
+
+/* ==============================
+   HEADER ADMIN SELUNÉ
+============================== */
+
+.admin-brand-header {
+    width: 100%;
+    box-sizing: border-box;
+    background: #fbf5eb;
+    border: 1px solid #eadbc9;
+    border-radius: 20px;
+    padding: 35px 40px;
+    margin: 0 0 30px;
+    text-align: center;
+}
+
+.admin-brand-header h1 {
+    margin: 0;
+    color: #76513d;
+    font-family: Georgia, serif;
+    font-size: 38px;
+    font-weight: 600;
+    letter-spacing: 8px;
+}
+
+.admin-brand-header p {
+    margin: 12px 0 0;
+    color: #a17b64;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+    .admin-brand-header {
+        padding: 25px 15px;
+    }
+
+    .admin-brand-header h1 {
+        font-size: 28px;
+        letter-spacing: 5px;
+    }
+
+    .admin-brand-header p {
+        font-size: 12px;
+    }
+}
+
+
+/* ============================= */
+/* REVIEW PRODUK SELUNÉ */
+/* ============================= */
+
+.review-section {
+    margin-top: 45px;
+    padding: 30px;
+    background: #fffaf5;
+    border-radius: 20px;
+}
+
+.review-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.review-heading h2 {
+    color: #654b3b;
+    margin: 0;
+    font-family: Georgia, serif;
+}
+
+.review-summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #8b7565;
+    font-size: 14px;
+}
+
+.review-average {
+    font-weight: bold;
+    color: #a66d36;
+    font-size: 17px;
+}
+
+
+/* FORM REVIEW */
+
+.review-form-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #eee1d5;
+    margin-bottom: 30px;
+}
+
+.review-form-card h3 {
+    margin-top: 0;
+    color: #654b3b;
+    font-family: Georgia, serif;
+}
+
+.review-form-description {
+    color: #927d6d;
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+.review-form-group {
+    margin-bottom: 20px;
+}
+
+.review-label {
+    display: block;
+    margin-bottom: 10px;
+    color: #654b3b;
+    font-weight: 600;
+}
+
+
+/* RATING */
+
+.rating-input {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.rating-option {
+    cursor: pointer;
+}
+
+.rating-option input {
+    display: none;
+}
+
+.rating-option span {
+    display: inline-block;
+    padding: 9px 13px;
+    border-radius: 10px;
+    background: #f7eee5;
+    color: #80634e;
+    border: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.rating-option:hover span {
+    background: #efe0d0;
+}
+
+.rating-option input:checked + span {
+    background: #e8c99f;
+    border-color: #b58b5c;
+    color: #5c4029;
+}
+
+
+/* KOMENTAR */
+
+.review-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px;
+    border: 1px solid #e4d5c8;
+    border-radius: 12px;
+    background: #fffdfb;
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+    outline: none;
+    transition: 0.2s;
+}
+
+.review-textarea:focus {
+    border-color: #b58b5c;
+    box-shadow: 0 0 0 3px rgba(181, 139, 92, 0.12);
+}
+
+
+/* UPLOAD FOTO */
+
+.review-file-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    background: #fffdfb;
+    border: 1px dashed #cbb6a2;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.review-form-group small {
+    display: block;
+    margin-top: 8px;
+    color: #9b8979;
+    font-size: 12px;
+}
+
+
+/* BUTTON KIRIM */
+
+.review-submit-btn {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    background: #80634e;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.review-submit-btn:hover {
+    background: #654b3b;
+    transform: translateY(-1px);
+}
+
+
+/* PESAN */
+
+.review-success {
+    padding: 14px 18px;
+    background: #edf5e9;
+    color: #527348;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.review-error {
+    padding: 14px 18px;
+    background: #fff0ed;
+    color: #a34e42;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.review-error ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.review-login-message {
+    background: #f7eee5;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    color: #80634e;
+}
+
+.review-login-message a {
+    color: #654b3b;
+    font-weight: bold;
+}
+
+
+/* DAFTAR REVIEW */
+
+.review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.review-card {
+    background: #ffffff;
+    border: 1px solid #eee1d5;
+    padding: 22px;
+    border-radius: 16px;
+}
+
+.review-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.review-user {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.review-user strong {
+    color: #654b3b;
+}
+
+.review-date {
+    font-size: 12px;
+    color: #a18b79;
+}
+
+.review-stars {
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.review-comment {
+    color: #786455;
+    line-height: 1.7;
+    margin: 12px 0;
+    overflow-wrap: anywhere;
+}
+
+
+/* FOTO REVIEW */
+
+.review-photo-wrapper {
+    margin-top: 15px;
+}
+
+.review-photo {
+    width: 100%;
+    max-width: 280px;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+}
+
+
+/* REVIEW KOSONG */
+
+.review-empty {
+    text-align: center;
+    padding: 35px 20px;
+    background: #ffffff;
+    border: 1px dashed #d9c6b5;
+    border-radius: 16px;
+    color: #9b8979;
+}
+
+.review-empty p {
+    margin: 6px 0;
+}
+
+
+/* RESPONSIVE HP */
+
+@media (max-width: 600px) {
+
+    .review-section {
+        padding: 18px;
+        margin-top: 30px;
+    }
+
+    .review-form-card {
+        padding: 18px;
+    }
+
+    .review-card {
+        padding: 17px;
+    }
+
+    .review-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .rating-input {
+        gap: 5px;
+    }
+
+    .rating-option span {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .review-photo {
+        max-width: 100%;
+    }
+
+    .review-submit-btn {
+        width: 100%;
+    }
+}
+
+
+/* ============================= */
+/* NAVBAR USER SELUNÉ */
+/* ============================= */
+
+.user-navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    background: #f8eee5;
+    border-radius: 16px;
+}
+
+.user-navbar > a {
+    text-decoration: none;
+    color: #80634e;
+    padding: 10px 16px;
+    border-radius: 25px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.user-navbar > a:hover {
+    background: #ead8c6;
+}
+
+.user-navbar > a.active {
+    background: #80634e;
+    color: #ffffff;
+}
+
+.user-navbar form {
+    margin: 0;
+}
+
+.user-nav-logout {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 25px;
+    background: #d9b8a1;
+    color: #604635;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.user-nav-logout:hover {
+    background: #cba58a;
+}
+
+@media (max-width: 600px) {
+    .user-navbar {
+        gap: 5px;
+        padding: 12px;
+    }
+
+    .user-navbar > a,
+    .user-nav-logout {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+}
+
+
+/* ============================= */
+/* RIWAYAT PESANAN USER */
+/* ============================= */
+
+.user-orders-section {
+    max-width: 1000px;
+    margin: 35px auto;
+    padding: 0 10px;
+}
+
+.user-orders-heading {
+    margin-bottom: 25px;
+}
+
+.user-orders-heading h2 {
+    font-family: Georgia, serif;
+    color: #654b3b;
+    margin-bottom: 8px;
+}
+
+.user-orders-heading p {
+    color: #9b8979;
+    font-size: 14px;
+}
+
+
+/* CARD PESANAN */
+
+.user-order-card {
+    background: #fffaf5;
+    border: 1px solid #eee1d5;
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 22px;
+}
+
+
+/* HEADER */
+
+.user-order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #eaded2;
+}
+
+.user-order-header > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.user-order-label {
+    color: #a18b79;
+    font-size: 12px;
+}
+
+.user-order-header strong {
+    color: #654b3b;
+    font-size: 14px;
+}
+
+
+/* STATUS */
+
+.user-order-status {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: #f2dfc8;
+    color: #89633f;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.user-order-status.status-dibayar {
+    background: #e4eddf;
+    color: #58734d;
+}
+
+.user-order-status.status-selesai {
+    background: #dcebe5;
+    color: #4e7666;
+}
+
+
+/* PRODUK */
+
+.user-order-products {
+    padding: 10px 0;
+}
+
+.user-order-product {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 0;
+    border-bottom: 1px solid #f0e6dd;
+}
+
+.user-order-product-image {
+    width: 90px;
+    height: 90px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #f1e5d9;
+}
+
+.user-order-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-order-no-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #a18b79;
+    font-size: 12px;
+}
+
+.user-order-product-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.user-order-product-info h3 {
+    margin: 0 0 8px;
+    color: #654b3b;
+    font-size: 15px;
+}
+
+.user-order-product-info p {
+    margin: 0 0 5px;
+    color: #80634e;
+    font-size: 14px;
+}
+
+.user-order-product-info span {
+    color: #a18b79;
+    font-size: 13px;
+}
+
+.user-order-subtotal {
+    color: #654b3b;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: right;
+}
+
+
+/* PENGIRIMAN */
+
+.user-order-shipping {
+    margin-top: 15px;
+    padding: 18px;
+    background: #f7eee5;
+    border-radius: 12px;
+}
+
+.user-order-shipping h4 {
+    margin: 0 0 12px;
+    color: #654b3b;
+}
+
+.user-order-shipping p {
+    margin: 7px 0;
+    color: #80634e;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+
+/* TOTAL */
+
+.user-order-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 18px;
+    margin-top: 15px;
+    border-top: 1px solid #eaded2;
+}
+
+.user-order-footer > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.user-order-footer span {
+    color: #a18b79;
+    font-size: 13px;
+}
+
+.user-order-footer strong {
+    color: #80634e;
+    font-size: 20px;
+}
+
+
+/* EMPTY */
+
+.user-orders-empty {
+    text-align: center;
+    padding: 55px 20px;
+    background: #fffaf5;
+    border: 1px dashed #d9c6b5;
+    border-radius: 18px;
+}
+
+.user-orders-empty-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.user-orders-empty h3 {
+    color: #654b3b;
+    font-family: Georgia, serif;
+}
+
+.user-orders-empty p {
+    color: #9b8979;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.user-orders-shop-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 24px;
+    border-radius: 30px;
+    background: #80634e;
+    color: white;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.user-orders-shop-btn:hover {
+    background: #654b3b;
+}
+
+
+/* PAGINATION */
+
+.user-orders-pagination {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    .user-orders-section {
+        margin-top: 25px;
+        padding: 0;
+    }
+
+    .user-order-card {
+        padding: 16px;
+    }
+
+    .user-order-product {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .user-order-product-image {
+        width: 72px;
+        height: 72px;
+    }
+
+    .user-order-product-info h3 {
+        font-size: 14px;
+    }
+
+    .user-order-subtotal {
+        width: 100%;
+        padding-left: 84px;
+        text-align: left;
+    }
+
+    .user-order-footer strong {
+        font-size: 18px;
+    }
+
+    .user-order-header {
+        align-items: flex-start;
+    }
+}
+
+/* TOMBOL HAPUS KERANJANG */
+.cart-delete-btn {
+    margin-top: 12px;
+    padding: 9px 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: #d9b8a1;
+    color: #604635;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.cart-delete-btn:hover {
+    background-color: #c49376;
+    color: white;
+}
+
+.cart-item-info form {
+    margin-top: 5px;
+}
+
+/* =========================
+   DAFTAR & KATALOG
+========================= */
+
+.login-register {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.login-register p {
+    margin-bottom: 5px;
+    white-space: nowrap;
+}
+
+.login-register a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-register a:hover {
+    text-decoration: underline;
+}
+
+/* TOMBOL KEMBALI KE KATALOG */
+.login-back {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 15px;
+
+    background-color: #d8c5aa;
+    color: #624735;
+
+    border: 1px solid #c5a88c;
+    border-radius: 6px;
+
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.login-back:hover {
+    background-color: #f3e4d3;
+}
